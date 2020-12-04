@@ -7,14 +7,14 @@ namespace DeepSpace
 {
     class CuandoEsJugador
     {
+		List<Planeta> camino = new List<Planeta>();
 
-		public Movimiento Primereando(ArbolGeneral<Planeta> arbol)
+		Recorridos recorrido = new Recorridos();
+
+		int team = 2;
+		public Movimiento CalcularDelJugador(ArbolGeneral<Planeta> arbol)
 		{
-			List<Planeta> camino = new List<Planeta>();
-
-			Recorridos recorrido = new Recorridos();
-
-			recorrido.ConPreorden(arbol, camino);
+			recorrido.ConPreorden(arbol, camino, team);
 
 			Planeta ori = camino.Last<Planeta>();
 
@@ -30,49 +30,6 @@ namespace DeepSpace
 			}
 			return null;
 		}
-
-		public Movimiento Segundeando(ArbolGeneral<Planeta> arbol)
-		{
-			List<Planeta> camino = new List<Planeta>();
-
-			Recorridos recorrido = new Recorridos();
-
-			recorrido.ConPreorden2(arbol, camino);
-
-			if (camino.Count > 2)
-			{
-
-				Planeta ori = camino.Last<Planeta>();
-
-				camino.Remove(ori);
-
-				Planeta dest = camino.Last<Planeta>();
-
-				camino.Remove(dest);
-
-				Planeta dest1 = camino.Last<Planeta>();
-
-				Movimiento mov = new Movimiento(dest, dest1);
-
-				return mov;
-			}
-
-			return null;
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	}
 }

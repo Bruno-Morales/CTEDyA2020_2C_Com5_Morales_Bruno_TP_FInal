@@ -7,13 +7,14 @@ namespace DeepSpace
 {
      class CuandoEsNeutral
     {
-		public Movimiento Este(ArbolGeneral<Planeta> arbol)
+		List<Planeta> camino = new List<Planeta>();
+
+		Recorridos recorrido = new Recorridos();
+
+		int team = 2;
+		public Movimiento CalculardeNeutral(ArbolGeneral<Planeta> arbol)
 		{
-			List<Planeta> camino = new List<Planeta>();
-
-			Recorridos recorrido = new Recorridos();
-
-			recorrido.ConPreorden(arbol, camino);
+			recorrido.ConPreorden(arbol, camino, team);
 
 			if (camino.Count != 0)
 			{

@@ -20,7 +20,7 @@ namespace DeepSpace
                 Movimiento ataque = this.est.CalcularMovimiento(game.scene.arbolDePlanetas);
                 if(ataque!=null)
                     gamescene.SendFleet(ataque.origen, ataque.destino);
-                acc -= 0;
+                acc -= 1;
             }
         }
 
